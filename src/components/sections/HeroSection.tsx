@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '../ui/Button';
 
 export const HeroSection: React.FC = () => {
+  const [currentHeadline, setCurrentHeadline] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const headlines = [
+    { line1: "Your talent is worth money.", line2: "Prove it." },
+    { line1: "Compete. Win.", line2: "Earn instantly." }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentHeadline((prev) => (prev + 1) % headlines.length);
+        setIsAnimating(false);
+      }, 500); // Wait for fade out
+    }, 4000); // Change every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Image with Overlay */}
@@ -14,43 +34,50 @@ export const HeroSection: React.FC = () => {
         <div className="absolute inset-0 bg-platform-dark-900/70 backdrop-blur-[2px]"></div>
       </div>
 
-      <div className="container mx-auto px-4 text-center relative z-10">
-        {/* Main heading with animation */}
-        <div className="mb-8 animate-float">
-          <h1 className="text-5xl md:text-7xl mb-6 gradient-text font-['CarterOne']">Compete. Create. Earn.</h1>
-        </div>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+          {/* Text Content */}
+          <div className="lg:w-1/2 text-center lg:text-left pt-20 lg:pt-0">
+            {/* Main heading with animation */}
+            <div className="mb-8 min-h-[160px] flex items-center justify-center lg:justify-start">
+              <h1 
+                className={`text-5xl md:text-7xl mb-6 gradient-text font-['CarterOne'] transition-opacity duration-500 ${
+                  isAnimating ? 'opacity-0' : 'opacity-100'
+                }`}
+              >
+                <span className="block">{headlines[currentHeadline].line1}</span>
+                <span className="block mt-2">{headlines[currentHeadline].line2}</span>
+              </h1>
+            </div>
 
-        {/* Subheading */}
-        <div className="max-w-3xl mx-auto mb-12">
-          <p className="text-xl md:text-2xl text-platform-text text-opacity-80 mb-8 leading-relaxed">
-            A tournament platform for video creators across talents — join competitions and earn real money with your content.
-          </p>
-        </div>
+            {/* Subheading */}
+            <div className="max-w-2xl mx-auto lg:mx-0 mb-12">
+              <p className="text-xl md:text-2xl text-platform-text text-opacity-80 mb-8 leading-relaxed">
+                Vincere is a video competition platform for creators and talents ready to monetize their skills. No waiting for followers, viewers, or advertisers. Just pure competition and real prizes.
+              </p>
+            </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-          <Button variant="primary" size="lg" className="group">
-            Join a tournament
-          </Button>
-        </div>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-16 lg:mb-0">
+              <Button variant="primary" size="lg" className="group">
+                Start Competing
+              </Button>
+            </div>
+          </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-platform-text mb-2">150+</div>
-            <div className="text-platform-text text-opacity-70">Active tournaments</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-platform-text mb-2">10K+</div>
-            <div className="text-platform-text text-opacity-70">Participants</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-platform-text mb-2">50K+</div>
-            <div className="text-platform-text text-opacity-70">Evaluations</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-platform-text mb-2">5K+</div>
-            <div className="text-platform-text text-opacity-70">Videos</div>
+          {/* Phone Image */}
+          <div className="lg:w-1/2 flex justify-center lg:justify-end relative">
+             <div className="relative w-[280px] md:w-[340px] lg:w-[380px] transform rotate-[-6deg] hover:rotate-0 transition-transform duration-700 ease-out z-20">
+                <div className="absolute inset-0 bg-platform-primary/30 blur-[80px] rounded-full animate-pulse"></div>
+                <img 
+                  src="/images/app-splash.png" 
+                  alt="Vincere App Splash Screen" 
+                  className="relative w-full h-auto drop-shadow-2xl"
+                />
+             </div>
+             
+             {/* Decorative elements behind phone */}
+             <div className="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/4 w-64 h-64 bg-platform-secondary/20 rounded-full blur-[60px] pointer-events-none"></div>
           </div>
         </div>
       </div>

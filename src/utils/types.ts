@@ -20,8 +20,8 @@ export interface ButtonProps {
 }
 
 export interface CardProps {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   icon?: string;
   className?: string;
   children?: React.ReactNode;

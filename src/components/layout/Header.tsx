@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { navigationItems } from '../../utils/constants';
 import { Menu, X } from 'lucide-react';
 import { Logo } from '../ui/Logo';
+import { Link } from 'react-router-dom';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,20 +12,20 @@ export const Header: React.FC = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <Logo />
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navigationItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
-                href={item.href}
+                to={item.href}
                 className="text-platform-text hover:text-platform-primary transition-colors duration-300 font-medium"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -52,14 +53,14 @@ export const Header: React.FC = () => {
           <div className="md:hidden mt-4 pb-4">
             <nav className="flex flex-col space-y-4">
               {navigationItems.map((item) => (
-                <a
+                <Link
                   key={item.href}
-                  href={item.href}
+                  to={item.href}
                   className="text-platform-text hover:text-platform-primary transition-colors duration-300 font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </nav>
             <div className="flex flex-col space-y-4 mt-6">

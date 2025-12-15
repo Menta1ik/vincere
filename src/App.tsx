@@ -1,15 +1,25 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { HomePage } from "./pages/HomePage";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HomePage } from './pages/HomePage';
+import { AboutPage } from './pages/AboutPage';
+import { RulesPage } from './pages/RulesPage';
+import { ContactPage } from './pages/ContactPage';
+import { PrivacyPage } from './pages/PrivacyPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 
-export default function App() {
+const App: React.FC = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<div className="text-center text-xl text-platform-text p-8">About — Coming soon</div>} />
-        <Route path="/features" element={<div className="text-center text-xl text-platform-text p-8">Features — Coming soon</div>} />
-        <Route path="/contact" element={<div className="text-center text-xl text-platform-text p-8">Contacts — Coming soon</div>} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/rules" element={<RulesPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   );
-}
+};
+
+export default App;

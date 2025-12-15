@@ -18,9 +18,9 @@ export const Card: React.FC<CardProps> = ({
           </div>
         </div>
       )}
-      <h3 className="text-xl font-semibold text-platform-text mb-2">{title}</h3>
-      <p className="text-platform-text text-opacity-80">{description}</p>
-      {children && <div className="mt-4">{children}</div>}
+      {title && <h3 className="text-xl font-semibold text-platform-text mb-2">{title}</h3>}
+      {description && <p className="text-platform-text text-opacity-80">{description}</p>}
+      {children && <div className={title || description ? "mt-4" : ""}>{children}</div>}
     </div>
   );
 };

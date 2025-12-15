@@ -3,58 +3,36 @@ import { Feature, NavigationItem } from './types';
 export const navigationItems: NavigationItem[] = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
-  { label: 'Features', href: '/features' },
-  { label: 'Contacts', href: '/contact' },
+  { label: 'Rules', href: '/rules' },
+  { label: 'Support', href: '/contact' },
+];
+
+export const legalNavigation: NavigationItem[] = [
+  { label: 'Privacy Policy', href: '/privacy' },
+  { label: 'Terms of Service', href: '/rules' }, // Reusing Rules for now
+  { label: 'Content Policy', href: '/rules' },
 ];
 
 export const features: Feature[] = [
+  // ... kept for compatibility if needed, but likely unused now
   {
     id: '1',
     title: 'AI Judging',
     description: 'Objective scoring powered by advanced machine learning',
     icon: 'brain',
   },
-  {
-    id: '2',
-    title: 'Video Uploads',
-    description: 'Frictionless video upload, processing and publishing',
-    icon: 'video',
-  },
-  {
-    id: '3',
-    title: 'Creator Tournaments',
-    description: 'Join or host tournaments across talents at any scale',
-    icon: 'trophy',
-  },
-  {
-    id: '4',
-    title: 'Cash Prizes',
-    description: 'Compete in verified events and earn real money',
-    icon: 'user-plus',
-  },
-  {
-    id: '5',
-    title: 'Creator Analytics',
-    description: 'Performance stats and insights across tournaments',
-    icon: 'bar-chart',
-  },
-  {
-    id: '6',
-    title: 'Safety & Anti‑cheat',
-    description: 'Moderation, content protection and fraud prevention',
-    icon: 'shield',
-  },
+  // ...
 ];
 
 export const platformStats = [
-  { label: 'Active tournaments', value: '150+' },
-  { label: 'Participants', value: '10K+' },
-  { label: 'Evaluations', value: '50K+' },
-  { label: 'Videos', value: '5K+' },
+  { label: 'Paid to creators', value: '$5M+' },
+  { label: 'Competitions held', value: '10K+' },
+  { label: 'Countries represented', value: '50+' },
+  { label: 'Average rating', value: '4.9' },
 ];
 
 export const contactInfo = {
-  email: 'info@vincere.ai',
-  phone: '+1 (323) 555-0199',
-  address: 'Los Angeles, CA 90028',
+  email: 'support@vincere.app',
+  phone: '', // Removed as not in doc
+  address: '', // Removed as not in doc
 };

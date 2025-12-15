@@ -1,7 +1,8 @@
 import React from 'react';
-import { navigationItems, contactInfo } from '../../utils/constants';
-import { Mail, Phone, MapPin, Github, Twitter, Linkedin } from 'lucide-react';
+import { navigationItems, legalNavigation, contactInfo } from '../../utils/constants';
+import { Mail, Instagram, Twitter, Youtube } from 'lucide-react';
 import { Logo } from '../ui/Logo';
+import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   return (
@@ -17,15 +18,15 @@ export const Footer: React.FC = () => {
               A competition platform for video creators of all talents —
               join tournaments and earn real money with your content.
             </p>
-          <div className="flex space-x-4">
+            <div className="flex space-x-4">
               <a href="#" className="text-platform-text text-opacity-70 hover:text-platform-primary transition-colors">
-                <Github size={20} />
+                <Instagram size={20} />
               </a>
               <a href="#" className="text-platform-text text-opacity-70 hover:text-platform-primary transition-colors">
                 <Twitter size={20} />
               </a>
               <a href="#" className="text-platform-text text-opacity-70 hover:text-platform-primary transition-colors">
-                <Linkedin size={20} />
+                <Youtube size={20} />
               </a>
             </div>
           </div>
@@ -36,34 +37,39 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2">
               {navigationItems.map((item) => (
                 <li key={item.href}>
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.href}
                     className="text-platform-text text-opacity-70 hover:text-platform-primary transition-colors"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Legal */}
           <div>
-            <h3 className="text-lg font-semibold text-platform-text mb-4">Contacts</h3>
-            <ul className="space-y-3">
-              <li className="flex items-center space-x-2">
+            <h3 className="text-lg font-semibold text-platform-text mb-4">Legal</h3>
+            <ul className="space-y-2">
+              {legalNavigation.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    to={item.href}
+                    className="text-platform-text text-opacity-70 hover:text-platform-primary transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6">
+              <h3 className="text-lg font-semibold text-platform-text mb-2">Contact</h3>
+              <div className="flex items-center space-x-2">
                 <Mail size={16} className="text-platform-primary" />
                 <span className="text-platform-text text-opacity-70">{contactInfo.email}</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <Phone size={16} className="text-platform-primary" />
-                <span className="text-platform-text text-opacity-70">{contactInfo.phone}</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <MapPin size={16} className="text-platform-primary" />
-                <span className="text-platform-text text-opacity-70">{contactInfo.address}</span>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -73,12 +79,8 @@ export const Footer: React.FC = () => {
             © 2024 Vincere. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-platform-text text-opacity-50 hover:text-platform-primary text-sm transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-platform-text text-opacity-50 hover:text-platform-primary text-sm transition-colors">
-              Terms of Use
-            </a>
+             {/* Payment icons placeholder text as per doc */}
+             <span className="text-platform-text text-opacity-50 text-sm">Secured by Stripe & PayPal</span>
           </div>
         </div>
       </div>
