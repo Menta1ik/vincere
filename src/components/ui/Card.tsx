@@ -10,7 +10,7 @@ export const Card: React.FC<CardProps> = ({
   children 
 }) => {
   return (
-    <div className={clsx('platform-card rounded-xl p-6', className)}>
+    <div className={clsx('platform-card rounded-xl p-6 transition-all duration-300 hover:border-platform-primary/50', className)}>
       {icon && (
         <div className="mb-4">
           <div className="w-12 h-12 bg-platform-primary bg-opacity-20 rounded-lg flex items-center justify-center">

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card } from '../ui/Card';
 import { Quote } from 'lucide-react';
 
 export const TestimonialsSection: React.FC = () => {
@@ -33,22 +32,22 @@ export const TestimonialsSection: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((t, index) => (
-            <Card key={index} className="p-8 relative mt-6">
+            <div key={index} className="platform-card rounded-xl p-8 relative mt-6 h-full flex flex-col">
               <div className="absolute -top-6 left-8 bg-platform-secondary w-12 h-12 rounded-full flex items-center justify-center shadow-lg">
                 <Quote size={24} className="text-white fill-current" />
               </div>
               
-              <div className="pt-6">
+              <div className="pt-6 flex flex-col flex-grow">
                 <h4 className="text-xl font-bold text-white mb-4">"{t.highlight}"</h4>
-                <p className="text-platform-text text-opacity-80 mb-6 italic">
+                <p className="text-platform-text text-opacity-80 mb-6 italic flex-grow">
                   "{t.text}"
                 </p>
-                <div className="border-t border-platform-dark-700 pt-4">
+                <div className="border-t border-platform-dark-700 pt-4 mt-auto">
                   <div className="font-bold text-white">{t.author}</div>
                   <div className="text-sm text-platform-primary">{t.role}</div>
                 </div>
               </div>
-            </Card>
+            </div>
           ))}
         </div>
       </div>

@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold text-platform-text mb-4">Navigation</h3>
             <ul className="space-y-2">
               {navigationItems.map((item) => (
-                <li key={item.href}>
+                <li key={item.label}>
                   <Link
                     to={item.href}
                     className="text-platform-text text-opacity-70 hover:text-platform-primary transition-colors"
@@ -53,7 +53,7 @@ export const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold text-platform-text mb-4">Legal</h3>
             <ul className="space-y-2">
               {legalNavigation.map((item) => (
-                <li key={item.href}>
+                <li key={item.label}>
                   <Link
                     to={item.href}
                     className="text-platform-text text-opacity-70 hover:text-platform-primary transition-colors"
@@ -74,13 +74,21 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-platform-dark-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-platform-text text-opacity-50 text-sm">
-            © 2024 Vincere. All rights reserved.
-          </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-             {/* Payment icons placeholder text as per doc */}
-             <span className="text-platform-text text-opacity-50 text-sm">Secured by Stripe & PayPal</span>
+        <div className="border-t border-platform-dark-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+          {/* Left: Tech Stack */}
+          <div className="text-platform-text text-opacity-40 mb-4 md:mb-0 text-center md:text-left">
+            Powered by <a href="https://nxgenlowcode.biz/" target="_blank" rel="noopener noreferrer" className="text-platform-text text-opacity-60 font-semibold hover:text-platform-primary transition-colors">NextGen Low-code Platform</a>
+          </div>
+
+          {/* Center: Copyright */}
+          <div className="text-platform-text text-opacity-30 mb-4 md:mb-0 text-center">
+            © 2025 Vincere. All rights reserved.
+          </div>
+
+          {/* Right: Security */}
+          <div className="flex items-center gap-2 text-platform-text text-opacity-40">
+            <span>Secured by</span>
+            <a href="https://stripe.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-platform-text text-opacity-60 hover:text-platform-primary transition-colors">Stripe</a>
           </div>
         </div>
       </div>
