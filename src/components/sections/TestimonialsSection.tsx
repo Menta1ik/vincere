@@ -6,19 +6,25 @@ export const TestimonialsSection: React.FC = () => {
     {
       text: "I didn't expect results so quickly. On other platforms, it takes forever to see any income. On Vincere, I won three times in one month!",
       author: "Sarah M.",
-      role: "Dancer, USA",
+      role: "Dancer",
+      countryCode: "us",
+      countryName: "USA",
       highlight: "I earned $5,000 in my first month"
     },
     {
       text: "The AI judging is incredible. I compete based on my actual skill, not my follower count. That's exactly what I needed.",
       author: "Marcus T.",
-      role: "Musician, UK",
+      role: "Musician",
+      countryCode: "gb",
+      countryName: "UK",
       highlight: "Finally, a fair platform for real talents"
     },
     {
       text: "$24.99 per competition? That's nothing compared to the prize potential. Already won twice!",
       author: "Alex K.",
-      role: "Comedian, Canada",
+      role: "Comedian",
+      countryCode: "ca",
+      countryName: "Canada",
       highlight: "Best investment in my career"
     }
   ];
@@ -43,8 +49,19 @@ export const TestimonialsSection: React.FC = () => {
                   "{t.text}"
                 </p>
                 <div className="border-t border-platform-dark-700 pt-4 mt-auto">
-                  <div className="font-bold text-white">{t.author}</div>
-                  <div className="text-sm text-platform-primary">{t.role}</div>
+                  <div className="font-bold text-white mb-1 flex items-center gap-2">
+                    {t.author}
+                    <img 
+                      src={`https://flagcdn.com/w40/${t.countryCode}.png`}
+                      srcSet={`https://flagcdn.com/w80/${t.countryCode}.png 2x`}
+                      alt={t.countryName}
+                      title={t.countryName}
+                      className="w-5 h-5 rounded-full object-cover border border-white/20"
+                    />
+                  </div>
+                  <div className="text-sm text-platform-primary">
+                    {t.role}
+                  </div>
                 </div>
               </div>
             </div>
